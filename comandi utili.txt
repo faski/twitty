@@ -1,0 +1,2 @@
+-- Fai partire un sever locale
+python -m http.server
