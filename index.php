@@ -16,6 +16,13 @@
     <title>Twitty</title>
   </head>
   <body>
+
+    <?php
+      session_start();
+      #$_SESSION['loggedin'] = false;
+
+      #$_SESSION['name'] = 'Fabio';  
+    ?>
     
     <?php include 'navbar.php'; ?>
 
@@ -25,13 +32,18 @@
         </div>
 
         <div class="col-sm-10">
+          <?php
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
 
           <div class="input-group mb-3 tweet">
             <input type="text" class="form-control" placeholder="Write your tweet here..." aria-label="Write your tweet here..." aria-describedby="button-addon2">
             <div class="input-group-append">
+
               <button class="btn btn-outline-secondary" type="button" id="button-addon2">Post</button>
             </div>
           </div>
+          
+          <?php endif; ?>
           
           <?php include 'board.php'; ?>
 
