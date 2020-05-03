@@ -24,7 +24,7 @@
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
       <button class="dropdown-item" type="button">Change details</button>
       <button class="dropdown-item" type="button">Change password</button>
-      <form action="logout.php" method="post">
+      <form action="authentication/logout.php" method="post">
         <button type="submit" class="dropdown-item" type="button">Log out</button>
       </form>
     </div>
@@ -36,35 +36,35 @@
   <button type="button" class="btn btn-primary btn-light" data-toggle="modal" data-target=".bd-sign-up-modal">Sign up</button>
   <div class="modal fade bd-sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="signUpDialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+      <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle"lastName>Sign up</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
+          <h5 class="modal-title" id="exampleModalLongTitle"lastName>Sign up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
-            <form>
+          <form action="authentication/signup.php" method="POST">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="sigName" aria-describedby="emailHelp" placeholder="Enter Name">
             </div>
             <div class="form-group">
-                <label for="email">Last Name</label>
-                <input type="text" class="form-control" id="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
+              <label for="email">Last Name</label>
+              <input type="text" class="form-control" id="lastName" name="sigLastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
             </div>
             <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="sigEmail" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="sigPassword" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-primary">Sign up</button>
-            </form>
+          </form>
         </div>
-        </div>
+      </div>
     </div>
   </div>
   
@@ -73,20 +73,20 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle"lastName>Log in</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
+          <h5 class="modal-title" id="exampleModalLongTitle"lastName>Log in</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
-          <form action="login.php" method="post">
+          <form action="authentication/login.php" method="post">
             <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="logEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="logEmail" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="logPassword" placeholder="Password">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="logPassword" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-primary">Log in</button>
           </form>

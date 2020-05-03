@@ -34,7 +34,6 @@ CREATE TABLE `utenti` (
   `id` int(6) UNSIGNED NOT NULL,
   `nome` varchar(30) NOT NULL,
   `cognome` varchar(30) NOT NULL,
-  `data_di_nascita` date NOT NULL,
   `password` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -43,10 +42,10 @@ CREATE TABLE `utenti` (
 -- Dumping data for table `utenti`
 --
 
-INSERT INTO `utenti` (`id`, `nome`, `cognome`, `data_di_nascita`, `password`, `email`) VALUES
-(1, 'Mario', 'Rossi', '2020-05-12', 'password', 'mario.rossi@gmail.com'),
-(2, 'Pinco', 'Pallino', '2020-04-09', 'password', 'pinco.pallino@gmail.com'),
-(3, 'Gianni', 'Bianchi', '2020-04-08', 'password', 'gianni.bianchi@gmail.com');
+INSERT INTO `utenti` (`id`, `nome`, `cognome`, `password`, `email`) VALUES
+(1, 'Mario', 'Rossi', 'password', 'mario.rossi@gmail.com'),
+(2, 'Pinco', 'Pallino', 'password', 'pinco.pallino@gmail.com'),
+(3, 'Gianni', 'Bianchi', 'password', 'gianni.bianchi@gmail.com');
 
 --
 -- Indexes for dumped tables

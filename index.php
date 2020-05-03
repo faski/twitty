@@ -42,7 +42,7 @@
               <button class="btn btn-outline-secondary" type="button" id="button-addon2">Post</button>
             </div>
           </div>
-          
+
           <?php endif; ?>
           
           <?php include 'board.php'; ?>
