@@ -123,11 +123,21 @@
             </div>
           </div>
           
+          <?php
+            $conn=mysqli_connect("localhost","root","","db_twitty");
+            $query="SELECT u.nome, u.cognome, t.data_creazione, t.testo
+                    FROM `tweet` t
+                    JOIN `utenti` u
+                    ON t.id_utente = u.id
+                    ORDER BY t.data_creazione DESC";
+            $r=mysqli_query($conn,$query);
+            while ($row= mysqli_fetch_array($r)):
+          ?>
 
           <div class="tweet">
-            <h4>Fabio Priori</h4>
-            <h6>2020/05/01 22:30</h6>
-            <p>Obama on the pandemic: "Even when things reopen, it's still not going to be what everybody wants ... We haven't seen all the impact that's going to occur. I say that not to scare folks, but to get people thinking this going to be a marathon, not a sprint."</p>
+            <h4><?php echo $row[0] . ' ' . $row[1]; ?></h4>
+            <h6><?php echo $row[2]?></h6>
+            <p><?php echo $row[3]?></p>
             <div class="d-flex justify-content-between">
               <div>
                 <img src="img/like.png" width="" height="25" alt="">
@@ -146,49 +156,7 @@
             </div>
           </div>
 
-          <div class="tweet">
-            <h4>Fabio Priori</h4>
-            <h6>2020/05/01 22:30</h6>
-            <p>Obama on the pandemic: "Even when things reopen, it's still not going to be what everybody wants ... We haven't seen all the impact that's going to occur. I say that not to scare folks, but to get people thinking this going to be a marathon, not a sprint."</p>
-            <div class="d-flex justify-content-between">
-              <div>
-                <img src="img/like.png" width="" height="25" alt="">
-                <span>23</span>
-              </div>
-
-              <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle btn-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Options
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#">Edit</a>
-                  <a class="dropdown-item" href="#">Delete</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tweet">
-            <h4>Fabio Priori</h4>
-            <h6>2020/05/01 22:30</h6>
-            <p>Obama on the pandemic: "Even when things reopen, it's still not going to be what everybody wants ... We haven't seen all the impact that's going to occur. I say that not to scare folks, but to get people thinking this going to be a marathon, not a sprint."</p>
-            <div class="d-flex justify-content-between">
-              <div>
-                <img src="img/like.png" width="" height="25" alt="">
-                <span>23</span>
-              </div>
-
-              <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle btn-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Options
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#">Edit</a>
-                  <a class="dropdown-item" href="#">Delete</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php endwhile; ?>
 
         </div>
 

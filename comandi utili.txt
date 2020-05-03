@@ -1,2 +1,5 @@
 -- Fai partire un sever locale
 python -m http.server
+
+-- Copia dir corrente in twitty
+xcopy . C:\xampp\htdocs\twitty /s /i 
