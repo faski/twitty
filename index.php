@@ -33,11 +33,17 @@
 
         <div class="col-sm-10">
           <?php
+            if (isset($_SESSION['tweetId']) && isset($_SESSION['tweetText']))
+              $tweetText=$_SESSION['tweetText'];
+            else
+              $tweetText="";
+          ?>
+          <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
 
-          <form action="src/tweet/new_tweet.php" method="post">
+          <form action="src/tweet/upsert_tweet.php" method="post">
             <div class="input-group mb-3 tweet">
-              <input type="text" class="form-control" name="tweetText" placeholder="Write your tweet here..." aria-label="Write your tweet here..." aria-describedby="button-addon2">
+              <input type="text" class="form-control" name="tweetText" placeholder="Write your tweet here..."  value="<?php echo $tweetText ?>" aria-label="Write your tweet here..." aria-describedby="button-addon2">
               <div class="input-group-append">
 
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Post</button>

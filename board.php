@@ -27,7 +27,9 @@ while ($row= mysqli_fetch_array($r)):
           Options
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <form action="" method="post">
+          <form action="src/tweet/edit_tweet.php" method="post">
+            <input id="editTweetText" name="tweetText" type="hidden" value="<?php echo $row[3]?>">
+            <input id="editTweetId" name="tweetId" type="hidden" value="<?php echo $row[5]?>">
             <button type="submit" class="dropdown-item">Edit</button>
           </form>
           <form action="src/tweet/delete_tweet.php" method="post">
