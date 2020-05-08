@@ -24,7 +24,7 @@
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
       <button class="dropdown-item" type="button">Change details</button>
       <button class="dropdown-item" type="button">Change password</button>
-      <form action="authentication/logout.php" method="post">
+      <form action="src/authentication/logout.php" method="post">
         <button type="submit" class="dropdown-item" type="button">Log out</button>
       </form>
     </div>
@@ -44,7 +44,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="authentication/signup.php" method="POST">
+          <form action="src/authentication/signup.php" method="POST">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" class="form-control" id="name" name="sigName" aria-describedby="emailHelp" placeholder="Enter Name">
@@ -79,7 +79,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="authentication/login.php" method="post">
+          <form action="src/authentication/login.php" method="post">
             <div class="form-group">
               <label for="email">Email address</label>
               <input type="email" class="form-control" id="email" name="logEmail" aria-describedby="emailHelp" placeholder="Enter email">

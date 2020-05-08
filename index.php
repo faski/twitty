@@ -35,7 +35,7 @@
           <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
 
-          <form action="new_tweet.php" method="post">
+          <form action="src/tweet/new_tweet.php" method="post">
             <div class="input-group mb-3 tweet">
               <input type="text" class="form-control" name="tweetText" placeholder="Write your tweet here..." aria-label="Write your tweet here..." aria-describedby="button-addon2">
               <div class="input-group-append">
