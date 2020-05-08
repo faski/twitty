@@ -15,7 +15,6 @@
 
   $now=date("Y-m-d H:i:s");
 
-  $query="SELECT id, nome, cognome, email FROM Utenti WHERE email LIKE '$email' AND password LIKE '$password'";
   $query="INSERT INTO `tweet` (`testo`, `data_creazione`, `data_ultima_modifica`, `id_utente`) VALUES
               ('$text', '$now', '$now', $user_id);";
   $r=mysqli_query($conn,$query);
