@@ -154,3 +154,42 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+DROP TABLE IF EXISTS `like`;
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE TABLE `like` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `id_utente` int(6) NOT NULL,
+  `id_tweet` int(6) NOT NULL,
+  `data_creazione` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `like` (`id`, `id_utente`, `id_tweet`, `data_creazione`) VALUES
+(1, 1, 1, '2020-01-01 00:00:00'),
+(2, 2, 1, '2020-01-01 00:00:00'),
+(3, 3, 1, '2020-01-01 00:00:00'),
+(4, 1, 3, '2020-01-01 00:00:00'),
+(5, 2, 3, '2020-01-01 00:00:00'),
+(6, 3, 5, '2020-01-01 00:00:00');
+
+--
+-- Indici per le tabelle scaricate
+--
+
+--
+-- Indici per le tabelle `like`
+--
+ALTER TABLE `like`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `like`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
