@@ -35,13 +35,15 @@
           <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
 
-          <div class="input-group mb-3 tweet">
-            <input type="text" class="form-control" placeholder="Write your tweet here..." aria-label="Write your tweet here..." aria-describedby="button-addon2">
-            <div class="input-group-append">
+          <form action="new_tweet.php" method="post">
+            <div class="input-group mb-3 tweet">
+              <input type="text" class="form-control" name="tweetText" placeholder="Write your tweet here..." aria-label="Write your tweet here..." aria-describedby="button-addon2">
+              <div class="input-group-append">
 
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Post</button>
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Post</button>
+              </div>
             </div>
-          </div>
+          </form>
 
           <?php endif; ?>
           
