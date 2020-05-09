@@ -22,8 +22,6 @@
     header("location: http://localhost/twitty/index.php");
   }
     
-
   mysqli_close($conn);
-
 
 ?>

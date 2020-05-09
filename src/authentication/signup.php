@@ -32,7 +32,8 @@
       $_POST['logPassword']=$password;
       include 'login.php';
     }
- }
+  }
 
+  mysqli_close($conn);
 
 ?>

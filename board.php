@@ -1,9 +1,15 @@
 <?php
 $conn=mysqli_connect("localhost","root","","db_twitty");
-$query="SELECT u.nome, u.cognome, t.data_creazione, t.testo, t.id_utente, t.id
+$query="SELECT u.nome, u.cognome, t.data_creazione, t.testo, t.id_utente, t.id, IFNULL(l.likes, 0) AS likes
         FROM `tweet` t
         JOIN `utenti` u
         ON t.id_utente = u.id
+        LEFT JOIN (
+          SELECT id_tweet, COUNT(*) AS likes
+          FROM `like` 
+          GROUP BY 1
+        ) l
+        ON t.id = l.id_tweet
         ORDER BY t.data_creazione DESC";
 $r=mysqli_query($conn,$query);
 while ($row= mysqli_fetch_array($r)):
@@ -16,7 +22,7 @@ while ($row= mysqli_fetch_array($r)):
   <div class="d-flex justify-content-between">
     <div>
       <img src="img/like.png" width="" height="25" alt="">
-      <span>23</span>
+      <span><?php echo $row[6]?></span>
     </div>
 
     <?php
@@ -45,3 +51,4 @@ while ($row= mysqli_fetch_array($r)):
 </div>
 
 <?php endwhile; ?>
+<?php mysqli_close($conn); ?>
