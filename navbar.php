@@ -28,8 +28,8 @@
       <?php echo $_SESSION['name'] . ' ' . $_SESSION['lastName']?>
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-      <button class="dropdown-item" type="button">Change details</button>
-      <button class="dropdown-item" type="button">Change password</button>
+      <!-- <button class="dropdown-item" type="button">Change details</button> -->
+      <!-- <button class="dropdown-item" type="button">Change password</button> -->
       <form action="src/authentication/logout.php" method="post">
         <button type="submit" class="dropdown-item" type="button">Log out</button>
       </form>
