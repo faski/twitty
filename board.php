@@ -1,18 +1,23 @@
 <?php
-$conn=mysqli_connect("localhost","root","","db_twitty");
-$query="SELECT u.nome, u.cognome, t.data_creazione, t.testo, t.id_utente, t.id, IFNULL(l.likes, 0) AS likes
-        FROM `tweet` t
-        JOIN `utenti` u
-        ON t.id_utente = u.id
-        LEFT JOIN (
-          SELECT id_tweet, COUNT(*) AS likes
-          FROM `like` 
-          GROUP BY 1
-        ) l
-        ON t.id = l.id_tweet
-        ORDER BY t.data_creazione DESC";
-$r=mysqli_query($conn,$query);
-while ($row= mysqli_fetch_array($r)):
+  $searchText="";
+  if (isset($_SESSION['searchText']))
+    $searchText=$_SESSION['searchText'];
+
+  $conn=mysqli_connect("localhost","root","","db_twitty");
+  $query="SELECT u.nome, u.cognome, t.data_creazione, t.testo, t.id_utente, t.id, IFNULL(l.likes, 0) AS likes
+          FROM `tweet` t
+          JOIN `utenti` u
+          ON t.id_utente = u.id
+          LEFT JOIN (
+            SELECT id_tweet, COUNT(*) AS likes
+            FROM `like` 
+            GROUP BY 1
+          ) l
+          ON t.id = l.id_tweet
+          WHERE u.nome LIKE '%$searchText%' OR u.cognome LIKE '%$searchText%' OR t.testo LIKE '%$searchText%'
+          ORDER BY t.data_creazione DESC";
+  $r=mysqli_query($conn,$query);
+  while ($row= mysqli_fetch_array($r)):
 ?>
 
 <div class="tweet">
