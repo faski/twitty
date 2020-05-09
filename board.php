@@ -21,8 +21,14 @@ while ($row= mysqli_fetch_array($r)):
   <p><?php echo $row[3]?></p>
   <div class="d-flex justify-content-between">
     <div>
-      <img src="img/like.png" width="" height="25" alt="">
-      <span><?php echo $row[6]?></span>
+      <form action="src/like/add_remove_like.php" method="post">
+        <input id="addRemoveLikeTweetId" name="tweetId" type="hidden" value="<?php echo $row[5]?>">
+        <button type="submit" <?php if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true))
+                                  echo "disabled";?> >
+          <img src="img/like.png" width="" height="25" alt="">
+        </button>
+        <span><?php echo $row[6]?></span>
+      </form>
     </div>
 
     <?php
