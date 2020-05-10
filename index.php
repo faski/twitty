@@ -44,7 +44,7 @@
 
           <form action="src/tweet/upsert_tweet.php" method="post">
             <div class="input-group mb-3 tweet">
-              <input type="text" class="form-control" name="tweetText" placeholder="Write your tweet here..."  value="<?php echo $tweetText ?>" aria-label="Write your tweet here..." aria-describedby="button-addon2">
+              <input type="text" class="form-control" name="tweetText" placeholder="Write your tweet here..."  value="<?php echo $tweetText ?>" aria-label="Write your tweet here..." aria-describedby="button-addon2" required/>
               <div class="input-group-append">
 
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Post</button>

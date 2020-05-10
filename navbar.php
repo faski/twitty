@@ -53,19 +53,19 @@
           <form action="src/authentication/signup.php" method="POST">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="sigName" aria-describedby="emailHelp" placeholder="Enter Name">
+              <input type="text" class="form-control" id="name" name="sigName" aria-describedby="emailHelp" placeholder="Enter Name" required/>
             </div>
             <div class="form-group">
               <label for="email">Last Name</label>
-              <input type="text" class="form-control" id="lastName" name="sigLastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
+              <input type="text" class="form-control" id="lastName" name="sigLastName" aria-describedby="emailHelp" placeholder="Enter Last Name" required/>
             </div>
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" name="sigEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="email" name="sigEmail" aria-describedby="emailHelp" placeholder="Enter email" required/>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" name="sigPassword" placeholder="Password">
+              <input type="password" class="form-control" id="password" name="sigPassword" placeholder="Password" required/>
             </div>
             <button type="submit" class="btn btn-primary">Sign up</button>
           </form>
@@ -88,11 +88,11 @@
           <form action="src/authentication/login.php" method="post">
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" name="logEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="email" name="logEmail" aria-describedby="emailHelp" placeholder="Enter email" required/>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" name="logPassword" placeholder="Password">
+              <input type="password" class="form-control" id="password" name="logPassword" placeholder="Password" required/>
             </div>
             <button type="submit" class="btn btn-primary">Log in</button>
           </form>
