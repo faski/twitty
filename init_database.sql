@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS `like`;
+DROP TABLE IF EXISTS Tweet;
 DROP TABLE IF EXISTS Utenti;
 
 -- phpMyAdmin SQL Dump
@@ -73,7 +75,6 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
-DROP TABLE IF EXISTS Tweet;
 
 -- phpMyAdmin SQL Dump
 -- version 5.0.1
@@ -110,7 +111,7 @@ CREATE TABLE `tweet` (
   `testo` varchar(500) NOT NULL,
   `data_creazione` timestamp NULL DEFAULT NULL,
   `data_ultima_modifica` timestamp NULL DEFAULT NULL,
-  `id_utente` int(6) NOT NULL
+  `id_utente` int(6) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -138,7 +139,8 @@ INSERT INTO `tweet` (`id`, `testo`, `data_creazione`, `data_ultima_modifica`, `i
 -- Indexes for table `tweet`
 --
 ALTER TABLE `tweet`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_utente` (`id_utente`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -149,6 +151,10 @@ ALTER TABLE `tweet`
 --
 ALTER TABLE `tweet`
   MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+ALTER TABLE `tweet`
+  ADD CONSTRAINT `tweet_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
@@ -158,7 +164,6 @@ COMMIT;
 
 
 
-DROP TABLE IF EXISTS `like`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -167,8 +172,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `like` (
   `id` int(6) UNSIGNED NOT NULL,
-  `id_utente` int(6) NOT NULL,
-  `id_tweet` int(6) NOT NULL,
+  `id_utente` int(6) UNSIGNED NOT NULL,
+  `id_tweet` int(6) UNSIGNED NOT NULL,
   `data_creazione` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -193,8 +198,16 @@ INSERT INTO `like` (`id`, `id_utente`, `id_tweet`, `data_creazione`) VALUES
 -- Indici per le tabelle `like`
 --
 ALTER TABLE `like`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_utente` (`id_utente`),
+  ADD KEY `id_tweet` (`id_tweet`);
 
 ALTER TABLE `like`
   MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+ALTER TABLE `like`
+  ADD CONSTRAINT `like_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `like`
+  ADD CONSTRAINT `like_ibfk_2` FOREIGN KEY (`id_tweet`) REFERENCES `tweet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
