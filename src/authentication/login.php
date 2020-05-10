@@ -35,7 +35,10 @@
   }
   else
   {
-    echo"ATTENZIONE!<BR>non ci sono utenti con queste caratteristiche!<BR>controllare nome utente e password!<BR>";
+    echo "<script>
+    alert('Attenzione! Utente inesistente o dati inseriti non correttamente!');
+    window.location.href='http://localhost/twitty/index.php';
+    </script>";
   }
   mysqli_close($conn); //chiudo la connessione
 

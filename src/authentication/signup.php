@@ -17,7 +17,10 @@
   $query="SELECT email FROM Utenti WHERE email LIKE '$email'";
   $r=mysqli_query($conn,$query); // restituisce un identificativo di risorsa o FALSE se la query non è stata eseguita correttamente
   if( mysqli_affected_rows($conn) ==1) //mysql_num_rows() restituisce il numero di righe in un risultato
-    echo "Errore, login gia' esistente";
+    echo "<script>
+    alert('Utente esistente');
+    window.location.href='http://localhost/twitty/index.php';
+    </script>";
   else {
     $prova="INSERT INTO utenti (nome, cognome, email, password)
             VALUES ('$name', '$lastName', '$email', '$password')";
